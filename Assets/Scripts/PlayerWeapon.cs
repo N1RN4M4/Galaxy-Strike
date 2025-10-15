@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    [SerializeField] GameObject[] laser;
+    [SerializeField] GameObject[] lasers;
     bool isFiring = false;
 
     private void Update()
@@ -18,9 +18,13 @@ public class PlayerWeapon : MonoBehaviour
 
     void ProcessFiring()
     {
+        foreach (var laser in lasers)
+        {
+            var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = isFiring;
+        }
         // var emissionModule = laser.GetComponent<ParticleSystem>().emission;
         // emissionModule.enabled = isFiring;
     }
 
 }
-
