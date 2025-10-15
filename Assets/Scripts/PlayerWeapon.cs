@@ -23,8 +23,6 @@ public class PlayerWeapon : MonoBehaviour
             var emissionModule = laser.GetComponent<ParticleSystem>().emission;
             emissionModule.enabled = isFiring;
         }
-        // var emissionModule = laser.GetComponent<ParticleSystem>().emission;
-        // emissionModule.enabled = isFiring;
     }
 
 }
