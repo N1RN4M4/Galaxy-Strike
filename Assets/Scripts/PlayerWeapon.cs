@@ -9,6 +9,11 @@ public class PlayerWeapon : MonoBehaviour
 
     bool isFiring = false;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+    
     private void Update()
     {
         ProcessFiring();
