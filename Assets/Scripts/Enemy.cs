@@ -10,15 +10,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void OnParticleCollision(GameObject other)
     {
+        ProcessHit();
+    }
+
+    private void ProcessHit()
+    {
         hitPoints--;
 
         if (hitPoints <= 0)
         {
-           Instantiate(destroyedVFX, transform.position, Quaternion.identity);
-           Destroy(this.gameObject);
+            Instantiate(destroyedVFX, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
-        
     }
 
-    
 }
