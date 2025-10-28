@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject destroyedVFX;
     [SerializeField] int hitPoints = 3;
+    [SerializeField] int scoreValue = 10;
 
     Scoreboard scoreboard;
 
@@ -25,7 +26,7 @@ public class Enemy : MonoBehaviour
 
         if (hitPoints <= 0)
         {
-            scoreboard.increaseScore(10);
+            scoreboard.increaseScore(scoreValue);
             Instantiate(destroyedVFX, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
