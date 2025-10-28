@@ -7,7 +7,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject destroyedVFX;
     [SerializeField] int hitPoints = 3;
 
-    // Update is called once per frame
+    Scoreboard scoreboard;
+
+    private void Start()
+    {
+        scoreboard = FindFirstObjectByType<Scoreboard>();
+    }
+
     void OnParticleCollision(GameObject other)
     {
         ProcessHit();
@@ -19,6 +25,7 @@ public class Enemy : MonoBehaviour
 
         if (hitPoints <= 0)
         {
+            scoreboard.increaseScore(10);
             Instantiate(destroyedVFX, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
